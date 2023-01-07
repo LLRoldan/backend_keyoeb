@@ -1,0 +1,7 @@
+com/example2leo/demo/modelo/Persona.class
+com/example2leo/demo/DemoApplication.class
+com/example2leo/demo/service/PersonaService.class
+com/example2leo/demo/service/IPersonaService.class
+com/example2leo/demo/WebConfig.class
+com/example2leo/demo/controlador/Controller.class
+com/example2leo/demo/repository/PersonaRepository.class
