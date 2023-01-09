@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.example2leo.demo.service.IPersonaService;
 
+
+
 public class Controller {
     @Autowired
     private IPersonaService persoServ;
 
  
 
-    @PostMapping("/new/persona")
+    @PostMapping("new/persona")
     public void agregarPersona(@RequestBody Persona pers) {
         persoServ.crearPersona(pers);
     }
