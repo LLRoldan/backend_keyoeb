@@ -11,33 +11,47 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.example2leo.demo.service.IPersonaService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-
-
+@RestController
+@CrossOrigin (origins = "http://localhost:4200")
 public class Controller {
-    @Autowired
-    private IPersonaService persoServ;
+    @Autowired//(required = false)
+   public IPersonaService persoServ;
 
  
-
-    @PostMapping("new/persona")
-    public void agregarPersona(@RequestBody Persona pers) {
-        persoServ.crearPersona(pers);
+    @PostMapping("/new/persona")
+    public void agregarPersona(@RequestBody Persona per) {
+        System.out.println("funciona?");
+        persoServ.crearPersona(per);
+    
     }
-
- 
-
-    @GetMapping("/ver/personas")
+       
+    @GetMapping("/persona/ver")
     @ResponseBody
     public List<Persona> verPersonas() {
         return persoServ.verPersonas();
     }
 
- 
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/persona/delete/{id}")
     public void borrarPersona(@PathVariable Long id) {
         persoServ.borrarPersona(id);
     }
-    
+  
+       @PutMapping("/persona/editar/{id}")
+        public Persona editPersona(@PathVariable Long id,
+                                @RequestParam ("nombre") String nuevoNombre,
+                                @RequestParam ("apellido") String nuevoApellido)
+                               {
+        Persona persona = persoServ.buscarPersona(id);
+        persona.setNombre(nuevoNombre);
+        persona.setApellido(nuevoApellido);
+     
+        
+        persoServ.crearPersona(persona);
+        return persona;
+}
 }

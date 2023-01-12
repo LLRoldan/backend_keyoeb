@@ -5,32 +5,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
-//@Table(name = "persona")
-//public class Persona implements Serializable{
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "idPersona")
-//    private Long id;
-
-//    @Column(name = "nombre", nullable=false , length=45)
-//    private String nombre;
-
-//    @Column(name = "apellido", nullable=false, length=45)
-//    private String apellido;
 public class Persona { 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String nombre;
+    
+    //@NotNull
     private String apellido;
-
- 
-
+    //@NotNull
+    private String nombre;
+           
     public Persona() {
     }
 
@@ -38,8 +29,9 @@ public class Persona {
 
     public Persona(Long id, String nombre, String apellido) {
         this.id= id;
-        this.nombre = nombre;
         this.apellido = apellido;
+        this.nombre = nombre;
+       
     }
     
 }

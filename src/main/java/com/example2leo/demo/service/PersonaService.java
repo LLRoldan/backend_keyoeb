@@ -3,12 +3,17 @@ package com.example2leo.demo.service;
 import com.example2leo.demo.modelo.Persona;
 import com.example2leo.demo.repository.PersonaRepository;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
+@Service
 public class PersonaService implements IPersonaService{
-@Autowired
-    public PersonaRepository persoRepo;
+  
+    
+//@Autowired (required = false)
+public PersonaRepository persoRepo;
 
  
     @Override
@@ -17,6 +22,7 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
+      @Transactional
     public void crearPersona(Persona per) {
         persoRepo.save(per);
     }

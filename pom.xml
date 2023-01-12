@@ -12,7 +12,7 @@
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<description>BAckend Leonardo Roldan Argentina programa , no funciona hasta ahora</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -51,13 +51,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	  <!-- <dependency>
-	<groupId>org.h2database</groupId>
-	  <artifactId>h2database</artifactId>
-	  <version>1.0.20061217</version>
-	  <type>pom</type>
-	 </dependency>-->
-	<!-- <dependency>
+	   <dependency>
+	<groupId>com.h2database</groupId>
+	  <artifactId>h2</artifactId>
+	  <scope>runtime</scope>
+	 </dependency>
+	 <!--dependency>
 	  <groupId>org.eclipse.persistence</groupId>
 	  <artifactId>org.eclipse.persistence.core</artifactId>
 	  <version>2.7.10</version>
@@ -100,7 +99,9 @@
 	 <dependency>
 	  <groupId>mysql</groupId>
 	  <artifactId>mysql-connector-java</artifactId>
+	  <!--version>8.0.30</version-->
 	  <version>8.0.30</version>
+	  <scope>runtime</scope>
 	 </dependency>
          <!--<dependency>
             <groupId>org.springframework.boot</groupId>
@@ -127,8 +128,13 @@
 	  <artifactId>hibernate-commons-annotations</artifactId>
 	  <version>6.0.2.Final</version>
 	 </dependency>
+           <dependency>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                    <scope>test</scope>
+                </dependency>
 	</dependencies>
-
+              
 	<build>
 		<plugins>
 			<plugin>
