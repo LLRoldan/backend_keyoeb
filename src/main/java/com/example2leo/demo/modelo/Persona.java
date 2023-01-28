@@ -1,37 +1,39 @@
 
 package com.example2leo.demo.modelo;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Persona { 
+
+public class Persona implements Serializable{ 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    //@NotNull
+    @NotNull
     private String apellido;
-    //@NotNull
+    @NotNull
     private String nombre;
            
     public Persona() {
     }
-
- 
-
-    public Persona(Long id, String nombre, String apellido) {
-        this.id= id;
+   public Persona(Long id, String apellido, String nombre) {
+        this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
        
     }
-    
+ 
 }
+
+ 
