@@ -3,8 +3,8 @@ package com.example2leo.demo.service;
 import com.example2leo.demo.modelo.Persona;
 import java.util.List;
 
-
 public interface IPersonaService {
+    
     public List<Persona> verPersonas();
 
     public void crearPersona(Persona per);

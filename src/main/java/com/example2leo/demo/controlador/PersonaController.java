@@ -2,7 +2,6 @@
 package com.example2leo.demo.controlador;
 
 import com.example2leo.demo.modelo.Persona;
-import com.example2leo.demo.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.example2leo.demo.service.PersonaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController
@@ -27,36 +24,36 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     
     @Autowired 
-            private PersonaService  IPersonaService;
+    private PersonaService IPersonaSer;
     
     @GetMapping ("/lista")
     public ResponseEntity<List<Persona>> list(){
-        List<Persona> list = IPersonaService.list();
+        List<Persona> list = IPersonaSer.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> detail(@PathVariable("id") Long id){
-        Persona perso = IPersonaService.getOne(id);
+        Persona perso = IPersonaSer.getOne(id);
         return new ResponseEntity(perso, HttpStatus.OK);
     }       
     
     
     @PostMapping("/create")
     public void save(@RequestBody Persona persona){
-        IPersonaService.save(persona);
+        IPersonaSer.save(persona);
     }
     
    
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id){
-        IPersonaService.delete(id);
+        IPersonaSer.delete(id);
     }
     
     @PutMapping("/update")
     public void edit(@RequestBody Persona persona){
-        IPersonaService.edit(persona);
+        IPersonaSer.edit(persona);
     }
             
 }
@@ -68,7 +65,7 @@ public class PersonaController {
 @CrossOrigin (origins = "http://localhost:4200")
 public class PersonaController {
     @Autowired//(required = false)
-private IPersonaService persoServ;
+private PersonaService persoServ;
   
        
     @PostMapping("/new")

@@ -41,11 +41,11 @@ public PersonaRepository persoRepo;
 }*/
 
 
-
 @Service
 @Transactional
 public class PersonaService  {
-    @Autowired (required = false) PersonaRepository rPersona;
+    @Autowired //(required = false) 
+            PersonaRepository rPersona;
     
     
    public List<Persona> list(){

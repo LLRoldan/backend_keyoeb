@@ -1,4 +1,3 @@
-
 package com.example2leo.demo.repository;
 
 import com.example2leo.demo.modelo.Persona;
