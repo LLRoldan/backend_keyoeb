@@ -1,5 +1,7 @@
 package com.example2leo.demo.modelo;
-import java.io.Serializable;
+//import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,7 +18,7 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 
-public class Persona implements Serializable{ 
+public class Persona  /*implements Serializable*/  { 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -32,17 +34,18 @@ public class Persona implements Serializable{
     private String ubicacion;
     
     private String telefono;
+    
     private String email;
           
-    @Size(min = 10, max = 1000, message = "1000 characters")
+    @Size(min = 1, max = 1000, message = "1000 characters")
     private String urlfacebook;
-    @Size(min = 10, max = 1000, message = "1000 characters")          
+    @Size(min = 1, max = 1000, message = "1000 characters")          
     private String urlinstagram;
-    @Size(min = 10, max = 1000, message = "1000 characters")             
+    @Size(min = 1, max = 1000, message = "1000 characters")             
     private String urllinkedin;
-    @Size(min = 10, max = 1000, message = "1000 characters")
+    @Size(min = 1, max = 1000, message = "1000 characters")
     private String urlbaner;
-    @Size(min = 10, max = 1000, message = "1000 characters")
+    @Size(min = 1, max = 1000, message = "1000 characters")
     private String urlabatar;
 
     private String expertoEnprimero;
@@ -52,14 +55,15 @@ public class Persona implements Serializable{
     private String expertoEntercero;
   
     //relacion y para que borre si la persona no existe
-    @OneToMany(fetch =FetchType.LAZY, mappedBy="e_persona", cascade=CascadeType.ALL)
+    //ver esto , el postman con persona con educacion falla
+    @OneToMany(fetch =FetchType.LAZY, mappedBy="persona", cascade=CascadeType.ALL)
     private List<Educacion> educacion; 
            
     public Persona() {
     }
    
     public Persona(Long id,String nombre, String apellido, 
-             String titulo, String domicilio, String ubicacion, String telefono,String email, 
+            String titulo, String domicilio, String ubicacion, String telefono,String email, 
             String urlfacebook, String urlinstagram,
             String urllinkedin,   String urlbaner, String urlabatar, String expertoEnprimero,
             String expertoEnsegundo, String expertoEntercero
@@ -75,8 +79,7 @@ public class Persona implements Serializable{
      this.ubicacion = ubicacion;
      this.telefono = telefono;
      this.email = email;
-     
-    
+        
      this.urlfacebook = urlfacebook;
      this.urlinstagram = urlinstagram;
      this.urllinkedin = urllinkedin;
@@ -88,6 +91,12 @@ public class Persona implements Serializable{
 
   
     }
+    
+    
+    // @JsonManagedReference
+   // public List<Educacion> getEducacion() {
+    //    return educacion;
+    //}
  
 }
 

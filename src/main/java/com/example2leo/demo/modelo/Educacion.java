@@ -1,6 +1,7 @@
 package com.example2leo.demo.modelo;
 
-import java.io.Serializable;
+//import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Setter
 @Entity
 
-public class Educacion implements Serializable {
+public class Educacion /*implements Serializable*/ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +39,7 @@ public class Educacion implements Serializable {
     @JoinColumn(name = "for_personaid", insertable=false, updatable=false)
     //para que se borre si se borra la persona
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Persona e_persona;
+    private Persona persona;
     
     private Long for_personaid;  
     
@@ -47,7 +48,7 @@ public class Educacion implements Serializable {
     }
 
     public Educacion( Long id,  String tituloOb,  String textDesc,  String imagLogo, 
-             String certificado,  String descLinkSitio, String linkSitio ,Long  for_personaid ) {
+             String certificado,  String descLinkSitio, String linkSitio,  Persona persona ) {
        
         this.titulo = tituloOb;
         this.descripcion = textDesc;
@@ -55,7 +56,19 @@ public class Educacion implements Serializable {
         this.urlcertificado = certificado;
         this.descLinkSitioOrg = descLinkSitio;
         this.urllinkSitio = linkSitio;
-        this.for_personaid = for_personaid;
+        this.persona = persona;
+        
+          
+    }
+    
+    
+        @JsonBackReference
+    public Persona getPersona() {
+        return persona;
+    }
+    
+     public Long getPersonaid() {
+        return for_personaid;
     }
 
 }

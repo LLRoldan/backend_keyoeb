@@ -12,45 +12,64 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example2leo.demo.service.PersonaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController
 @RequestMapping("/persona")
-@CrossOrigin("*")//(origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
+
+@CrossOrigin (origins = "http://localhost:4200")
+//@CrossOrigin("*")//(origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
 public class PersonaController {
     
     @Autowired 
     private PersonaService IPersonaSer;
     
-    @GetMapping ("/lista")
-    public ResponseEntity<List<Persona>> list(){
-        List<Persona> list = IPersonaSer.list();
-        return new ResponseEntity(list, HttpStatus.OK);
+    
+    @GetMapping("/lista")
+    @ResponseBody
+    public List<Persona> verPersonas() {
+        return IPersonaSer.list();
     }
     
     
+    //@GetMapping ("/lista")
+    //@ResponseBody
+    //public ResponseEntity<List<Persona>> list(){
+     // List<Persona> list = IPersonaSer.list();
+  // return new ResponseEntity(list, HttpStatus.OK);
+        // }
+     
+    
+    
+    
+  //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> detail(@PathVariable("id") Long id){
-        Persona perso = IPersonaSer.getOne(id);
+        Persona perso = IPersonaSer.buscarPersona(id);
         return new ResponseEntity(perso, HttpStatus.OK);
     }       
+     
     
-    
+  //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public void save(@RequestBody Persona persona){
-        IPersonaSer.save(persona);
+        IPersonaSer.crearPersona(persona);
     }
     
-   
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Long id){
-        IPersonaSer.delete(id);
+    public void borrarPersona(@PathVariable Long id){
+        IPersonaSer.borrarPersona(id);
     }
     
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public void edit(@RequestBody Persona persona){
         IPersonaSer.edit(persona);

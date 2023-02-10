@@ -2,10 +2,8 @@
 package com.example2leo.demo.controlador;
 
 import com.example2leo.demo.modelo.Educacion;
-import com.example2leo.demo.modelo.Persona;
 import com.example2leo.demo.service.EducacionService;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,26 +32,38 @@ public class EducacionController {
     }
               
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Educacion> detail(@PathVariable("id") int id){
-        Educacion estu = iEducacionServ.getEdu(id);
+    public ResponseEntity<Educacion> detail(@PathVariable("id") Long id){
+        Educacion estu = iEducacionServ.buscarEdu(id);
         return new ResponseEntity(estu, HttpStatus.OK);
     }
-     
+    
+       
+    // lista de experiencias por id de persona
+    // @GetMapping ("/persona/{id}/lista")
+    // public List <Educacion> listaEducacion(@PathVariable Long id){
+    //   return iEducacionServ.listaEducacion(id);    
+    // }
+    
+    
+    
+          
     
        @PostMapping("/guardar")
     public  void saveEducacion(@RequestBody Educacion educa){
-        iEducacionServ.save(educa);
+        iEducacionServ.saveEducacion(educa);
+        
     }
    
     @DeleteMapping("/delete/{id}")
-    public void borrarEducacion(@PathVariable Integer id) {
-        iEducacionServ.deleteado(id);
+    public String borrarEducacion(@PathVariable Long id) {
+        iEducacionServ.borrarEducacion(id);
+        return "se borro la Educacion";
     }
 
          
     @PutMapping("/update")
-    public void edit(@RequestBody Educacion estu) {      
-        iEducacionServ.save(estu);
+    public void edit(@RequestBody Educacion educa) {      
+        iEducacionServ.edit(educa);
     }
      
     

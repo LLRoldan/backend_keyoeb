@@ -43,27 +43,29 @@ public PersonaRepository persoRepo;
 
 @Service
 @Transactional
-public class PersonaService  {
-    @Autowired //(required = false) 
-            PersonaRepository rPersona;
-    
-    
-   public List<Persona> list(){
-        return rPersona.findAll();
+public class PersonaService implements IPersonaService {
+    @Autowired PersonaRepository rPersona;
+   
+    @Override
+    public List<Persona> list(){
+       return rPersona.findAll();
     }
     
-    public Persona getOne(Long id){
+    @Override
+    public Persona buscarPersona(Long id){
         Persona perso = rPersona.findById(id).orElse(null);
         return perso;
     }    
    
     
-    public void save(Persona pers){
+    @Override
+    public void crearPersona(Persona pers){
         rPersona.save(pers);
     }      
     
    
-     public void delete(Long id){
+    @Override
+     public void borrarPersona(Long id){
         rPersona.deleteById(id);
     }    
      
