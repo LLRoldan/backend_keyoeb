@@ -1,6 +1,6 @@
 package com.example2leo.demo.modelo;
 
-//import java.io.Serializable;
+import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Setter
 @Entity
 
-public class Educacion /*implements Serializable*/ {
+public class Educacion implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Educacion /*implements Serializable*/ {
     
     
  
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne/*(fetch = FetchType.LAZY)*/
     //creacion de columna con llave foranea
     @JoinColumn(name = "for_personaid", insertable=false, updatable=false)
     //para que se borre si se borra la persona
@@ -48,7 +48,7 @@ public class Educacion /*implements Serializable*/ {
     }
 
     public Educacion( Long id,  String tituloOb,  String textDesc,  String imagLogo, 
-             String certificado,  String descLinkSitio, String linkSitio,  Persona persona ) {
+             String certificado,  String descLinkSitio, String linkSitio , Persona persona ) {
        
         this.titulo = tituloOb;
         this.descripcion = textDesc;

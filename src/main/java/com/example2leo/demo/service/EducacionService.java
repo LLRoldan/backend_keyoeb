@@ -40,9 +40,9 @@ public class EducacionService implements IEducacionService{
     public void borrarEducacion(Long id) {
         rEstudio.deleteById(id); }
 
-   /// @Override
-   /// public List<Educacion> listaEducacion(Long id) {
-    ///return rEstudio.findByPersonaId(id);
-   /// }
-   
+      //busca lista deeducaciones por la id de la persona
+    public List<Educacion> findByPersonaId(Long personaId) {
+        return rEstudio.findByPersonaId(personaId);
+    }
+  
 }

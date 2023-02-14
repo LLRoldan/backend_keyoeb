@@ -30,6 +30,14 @@ public class EducacionController {
         List<Educacion> list =  iEducacionServ.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
+      //lista de educaciones por id de persona
+    @GetMapping ("/{id}/lista")
+    public List <Educacion> listaPer(@PathVariable Long id){
+        return iEducacionServ.findByPersonaId(id);    
+        }
+    
+    
               
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> detail(@PathVariable("id") Long id){
@@ -37,16 +45,8 @@ public class EducacionController {
         return new ResponseEntity(estu, HttpStatus.OK);
     }
     
-       
-    // lista de experiencias por id de persona
-    // @GetMapping ("/persona/{id}/lista")
-    // public List <Educacion> listaEducacion(@PathVariable Long id){
-    //   return iEducacionServ.listaEducacion(id);    
-    // }
-    
-    
-    
-          
+   
+     
     
        @PostMapping("/guardar")
     public  void saveEducacion(@RequestBody Educacion educa){

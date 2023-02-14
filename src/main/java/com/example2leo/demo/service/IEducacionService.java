@@ -2,7 +2,7 @@ package com.example2leo.demo.service;
 
 import com.example2leo.demo.modelo.Educacion;
 import java.util.List;
-//import java.util.Optional;
+
 
 
 public interface IEducacionService {
@@ -17,7 +17,7 @@ public interface IEducacionService {
     
     public Educacion buscarEdu(Long id);
       
-    //public Optional<Educacion>  findByPersonaId(Long id);
+
    }
 
 

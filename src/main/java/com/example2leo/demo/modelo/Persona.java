@@ -1,7 +1,6 @@
 package com.example2leo.demo.modelo;
-//import java.io.Serializable;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
+//import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,13 +13,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-
-@Getter @Setter
 @Entity
+@Getter
+@Setter
 
-public class Persona  /*implements Serializable*/  { 
+
+public class Persona  implements Serializable  { 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     private String nombre;
@@ -56,7 +56,9 @@ public class Persona  /*implements Serializable*/  {
   
     //relacion y para que borre si la persona no existe
     //ver esto , el postman con persona con educacion falla
-    @OneToMany(fetch =FetchType.LAZY, mappedBy="persona", cascade=CascadeType.ALL)
+    @OneToMany( fetch = FetchType.EAGER,
+            mappedBy="persona")
+    
     private List<Educacion> educacion; 
            
     public Persona() {
