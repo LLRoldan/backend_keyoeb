@@ -56,10 +56,11 @@ public class Persona  implements Serializable  {
   
     //relacion y para que borre si la persona no existe
     //ver esto , el postman con persona con educacion falla
-    @OneToMany( fetch = FetchType.EAGER,
-            mappedBy="persona")
-    
+    @OneToMany( fetch = FetchType.EAGER, mappedBy="persona")
     private List<Educacion> educacion; 
+    
+    /*@OneToMany( fetch = FetchType.EAGER,mappedBy="persona", cascade=CascadeType.ALL)
+    private List<Experiencia> experiencia; */
            
     public Persona() {
     }

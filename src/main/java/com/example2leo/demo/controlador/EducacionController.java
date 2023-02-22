@@ -2,6 +2,7 @@
 package com.example2leo.demo.controlador;
 
 import com.example2leo.demo.modelo.Educacion;
+import com.example2leo.demo.security.Controller.Mensaje;
 import com.example2leo.demo.service.EducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +61,18 @@ public class EducacionController {
         return "se borro la Educacion";
     }
 
-         
+    /*     
     @PutMapping("/update")
     public void edit(@RequestBody Educacion educa) {      
         iEducacionServ.edit(educa);
     }
-     
+   
+    
+    @GetMapping("/update/{id}")
+    public String edit(@PathVariable("id") Long idEduc) {
+       Educacion Educa = iEducacionServ.buscarEdu(idEduc);
+      
+      
+    }*/
     
     }

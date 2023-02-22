@@ -1,5 +1,4 @@
 package com.example2leo.demo.modelo;
-
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
