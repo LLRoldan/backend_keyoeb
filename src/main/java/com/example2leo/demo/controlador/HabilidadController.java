@@ -1,6 +1,8 @@
+
 package com.example2leo.demo.controlador;
-import com.example2leo.demo.modelo.Experiencia;
-import com.example2leo.demo.service.ExperienciaService;
+
+import com.example2leo.demo.modelo.Habilidad;
+import com.example2leo.demo.service.HabilidadService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,50 +15,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-  
+
 @RestController
-@RequestMapping("/expe")
+@RequestMapping("/habil")
 @CrossOrigin("*")//(origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
-public class ExperienciaController {
-    
-    @Autowired
-    private ExperienciaService iExperServ;
+public class HabilidadController {
+     @Autowired
+    private HabilidadService iHabilServ;
 
      @GetMapping ("/lista")
-    public ResponseEntity<List<Experiencia>> list(){
-        List<Experiencia> list =  iExperServ.list();
+    public ResponseEntity<List<Habilidad>> list(){
+        List<Habilidad> list =  iHabilServ.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
       //lista de educaciones por id de persona
     @GetMapping ("/{id}/lista")
-    public List <Experiencia> listaPer(@PathVariable Long id){
-        return iExperServ.findByPersonaId(id);    
+    public List <Habilidad> listaPer(@PathVariable Long id){
+        return iHabilServ.findByPersonaId(id);    
         }
     
     
               
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Experiencia> detail(@PathVariable("id") Long id){
-        Experiencia expe = iExperServ.buscarExp(id) ;
-        return new ResponseEntity(expe, HttpStatus.OK);
+    public ResponseEntity<Habilidad> detail(@PathVariable("id") Long id){
+        Habilidad habil =iHabilServ.buscarHabil(id) ;
+        return new ResponseEntity(habil, HttpStatus.OK);
     }
     
          
        @PostMapping("/create")
-    public  void saveExperiencia(@RequestBody Experiencia expe){
-        iExperServ.saveExperiencia(expe);
+    public  void saveHabilidad(@RequestBody Habilidad habil){
+        iHabilServ.saveHabilidad(habil);
      
     }
    
     @DeleteMapping("/delete/{id}")
-    public String borrarExperiencia(@PathVariable Long id) {
-        iExperServ.borrarExperiencia(id);
-        return "se borro la Experiencia";
+    public String borrarHabilidad(@PathVariable Long id) {
+       iHabilServ.borrarHabilidad(id);
+        return "se borro la Habilidad";
     }
 
   
     
     }
 
-    
