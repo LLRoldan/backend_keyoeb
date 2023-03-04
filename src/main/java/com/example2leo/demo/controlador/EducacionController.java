@@ -2,25 +2,27 @@
 package com.example2leo.demo.controlador;
 
 import com.example2leo.demo.modelo.Educacion;
-import com.example2leo.demo.security.Controller.Mensaje;
 import com.example2leo.demo.service.EducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educ")
-@CrossOrigin("*")//(origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
+@CrossOrigin("*")
+//(origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
+//@CrossOrigin( origins = {"https://porfolio-f5322.web.app/porfolio","http://localhost:4200"})
+
 public class EducacionController {
     
     @Autowired
@@ -38,7 +40,7 @@ public class EducacionController {
         return iEducacionServ.findByPersonaId(id);    
         }
     
-    
+  
               
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> detail(@PathVariable("id") Long id){
@@ -48,13 +50,16 @@ public class EducacionController {
     
    
      
-    
-       @PostMapping("/guardar")
+    @PreAuthorize("permitAll")
+    //@PreAuthorize("hasRole('ADMIN')")//solo logeado como administrador puede usar la funcion
+    @PostMapping("/guardar")
     public  void saveEducacion(@RequestBody Educacion educa){
         iEducacionServ.saveEducacion(educa);
+         
         
     }
    
+    @PreAuthorize("permitAll")
     @DeleteMapping("/delete/{id}")
     public String borrarEducacion(@PathVariable Long id) {
         iEducacionServ.borrarEducacion(id);

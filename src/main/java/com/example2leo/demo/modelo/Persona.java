@@ -1,23 +1,24 @@
 package com.example2leo.demo.modelo;
+import com.example2leo.demo.security.Entity.Usuario;
 import java.io.Serializable;
 //import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+
 @Entity
 @Getter
 @Setter
-
-
 public class Persona  implements Serializable  { 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,8 +63,11 @@ public class Persona  implements Serializable  {
     @OneToMany( /*fetch = FetchType.EAGER,*/mappedBy="persona", cascade=CascadeType.ALL)
     private List<Experiencia> experiencia; 
     
-     @OneToMany( /*fetch = FetchType.EAGER,*/mappedBy="persona", cascade=CascadeType.ALL)
+    @OneToMany( /*fetch = FetchType.EAGER,*/mappedBy="persona", cascade=CascadeType.ALL)
     private List<Habilidad> habilidad; 
+    
+    @OneToMany( /*fetch = FetchType.EAGER,*/mappedBy="persona", cascade=CascadeType.ALL)
+    private List<Trabajo> tabajo; 
     
     public Persona() {
     }
@@ -71,7 +75,7 @@ public class Persona  implements Serializable  {
     public Persona(Long id,String nombre, String apellido, 
             String titulo, String domicilio, String ubicacion, String telefono,String email, 
             String urlfacebook, String urlinstagram,
-            String urllinkedin,   String urlbaner, String urlabatar, String expertoEnprimero,
+            String urllinkedin, String urlbaner, String urlabatar, String expertoEnprimero,
             String expertoEnsegundo, String expertoEntercero
     
     )
@@ -85,7 +89,6 @@ public class Persona  implements Serializable  {
      this.ubicacion = ubicacion;
      this.telefono = telefono;
      this.email = email;
-        
      this.urlfacebook = urlfacebook;
      this.urlinstagram = urlinstagram;
      this.urllinkedin = urllinkedin;
