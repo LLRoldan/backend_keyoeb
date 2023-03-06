@@ -38,6 +38,12 @@ public class PersonaController {
     @ResponseBody
     public List<Persona> verPersonas() {
         return IPersonaSer.list();
+      
+    }
+    
+    @GetMapping("/prueba")
+    public String prueba() {
+        return "El backend estacorriendo";
     }
          
     @GetMapping("/detail/{id}")
