@@ -2,6 +2,7 @@
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/IPersonaService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/PersonaService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Service/UserDetailsImpl.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/CreateRoles.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Service/UsuarioService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/WebConfig.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/jwt/JwtTokenFilter.java
@@ -15,13 +16,17 @@
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Repository/IUsuarioRepository.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/repository/HabilidadRepository.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/IExperienciaService.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/modelo/Trabajo.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Entity/Usuario.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/ITrabajoService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/IEducacionService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Controller/Mensaje.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/repository/TrabajoReposirory.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/repository/EducacionRepository.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Entity/UsuarioPrincipal.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Controller/AuthController.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/repository/ExperienciaRepository.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/controlador/TrabajoController.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/controlador/ExperienciaController.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/DemoApplication.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/jwt/JwtEntryPoint.java
@@ -33,6 +38,7 @@
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/modelo/Habilidad.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/ExperienciaService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/controlador/HabilidadController.java
+/home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/TrabajoService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/service/IHabilidadService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Service/RolService.java
 /home/leonardo/Documentos/YoProgramo/Modulo8/demo/src/main/java/com/example2leo/demo/security/Entity/Rol.java

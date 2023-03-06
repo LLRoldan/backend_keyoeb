@@ -1,3 +1,4 @@
+com/example2leo/demo/service/TrabajoService.class
 com/example2leo/demo/service/IEducacionService.class
 com/example2leo/demo/modelo/Persona.class
 com/example2leo/demo/modelo/Habilidad.class
@@ -12,7 +13,9 @@ com/example2leo/demo/service/IExperienciaService.class
 com/example2leo/demo/security/Entity/UsuarioPrincipal.class
 com/example2leo/demo/security/Controller/Mensaje.class
 com/example2leo/demo/controlador/EducacionController.class
+com/example2leo/demo/service/ITrabajoService.class
 com/example2leo/demo/controlador/HabilidadController.class
+com/example2leo/demo/repository/TrabajoReposirory.class
 com/example2leo/demo/repository/HabilidadRepository.class
 com/example2leo/demo/security/MainSecurity.class
 com/example2leo/demo/repository/PersonaRepository.class
@@ -20,12 +23,14 @@ com/example2leo/demo/controlador/PersonaController.class
 com/example2leo/demo/service/ExperienciaService.class
 com/example2leo/demo/controlador/ExperienciaController.class
 com/example2leo/demo/repository/EducacionRepository.class
+com/example2leo/demo/modelo/Trabajo.class
 com/example2leo/demo/security/Dto/LoginUsuario.class
 com/example2leo/demo/security/Entity/Rol.class
 com/example2leo/demo/modelo/Experiencia.class
 com/example2leo/demo/security/Enums/RolNombre.class
 com/example2leo/demo/repository/ExperienciaRepository.class
 com/example2leo/demo/security/Controller/AuthController.class
+com/example2leo/demo/controlador/TrabajoController.class
 com/example2leo/demo/security/Repository/IRolRepository.class
 com/example2leo/demo/security/jwt/JwtEntryPoint.class
 com/example2leo/demo/service/IHabilidadService.class
@@ -38,3 +43,4 @@ com/example2leo/demo/service/PersonaService.class
 com/example2leo/demo/security/Entity/Usuario.class
 com/example2leo/demo/security/Dto/JwtDto.class
 com/example2leo/demo/WebConfig.class
+com/example2leo/demo/security/CreateRoles.class

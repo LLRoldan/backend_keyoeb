@@ -56,7 +56,7 @@ public class Persona  implements Serializable  {
     private String expertoEntercero;
   
     //relacion y para que borre si la persona no existe
-    //ver esto , el postman con persona con educacion falla
+    //ver esto , el postman con persona con Educacion falla
     @OneToMany(/* fetch = FetchType.EAGER,*/ mappedBy="persona", cascade=CascadeType.ALL)
     private List<Educacion> educacion; 
     
@@ -104,7 +104,7 @@ public class Persona  implements Serializable  {
     
     // @JsonManagedReference
    // public List<Educacion> getEducacion() {
-    //    return educacion;
+    //    return Educacion;
     //}
  
 }
